@@ -7,4 +7,4 @@ Web frontend for Snoozi
 * Font - Helvetica Neue
 * Primary Color - Pantone 485 Uncoatted
 
-** [This frontend bases in material design guidelines](https://www.google.com/design/spec/material-design/introduction.html) **
+*[This frontend bases in material design guidelines](https://www.google.com/design/spec/material-design/introduction.html)*
