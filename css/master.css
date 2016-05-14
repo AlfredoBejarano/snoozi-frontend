@@ -13,15 +13,20 @@
 html, body {
   width: 100%;
   height: 100%;
-  margin: none;
-  padding: none;
+  margin: 0px;
+  padding: 0px;
   overflow: hidden;
 }
 
-nav.navabar {
+nav.navbar {
   width: 100%;
   height: 64px;
-  position:fixed;
+  color: #F9F9F9;
+  position: fixed;
+  font-size: 32px;
+  padding-left: 8px;
+  line-height: 64px;
+  vertical-align: middle;
   background-color: #DE4343; 
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
 }
