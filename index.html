@@ -32,16 +32,48 @@
 
   <!-- API CALL -->
   <script>
-    $.getJSON(
-      'http://10.16.60.239:3000/dog', 
-      function(data) {
-        console.log(data);
-      }
-    );
     jQuery.get(
       "http://10.16.60.239:3000/dog", 
-      function( response ) { 
-        console.log(response);
+      function( response ) {       
+        var json_array = JSON.parse(JSON.stringify(response));
+        const API = "http://10.16.60.239:3000" 
+        var list = document.getElementsByClassName('dog-list');
+
+        for(var i in json_array) {
+          id = json_array[i].id;
+          breed = json_array[i].breed;
+          color = json_array[i].color;
+          found_date = json_array[i].found_date;
+          found_location = json_array[i].found_location;
+          image_url = json_array[i].thumb_url;
+
+          var link =  document.createElement("a");
+          link.setAttribute("target","_top");
+          link.setAttribute("href",API+"/dog/"+id);
+
+          var dog = document.createElement("li");
+          dog.className = "dog-element";
+
+          var dog_thumb = document.createElement("img");
+          dog_thumb.className = "dog-thumb"
+          dog_thumb.setAttribute("src",API + image_url);
+
+          var dog_breed = document.createElement("span");
+          dog_breed.className = "dog-list-breed";
+          dog_breed.innerHTML = breed + " " + color;
+
+          var dog_location = document.createElement("p");
+          dog_location.className = "dog-list-location";
+          dog_location.innerHTML = found_location + ", " + found_date;
+
+          dog.appendChild(dog_thumb);
+          dog.appendChild(dog_breed);
+          dog.appendChild(dog_location);
+
+          link.appendChild(dog);
+
+          list[0].appendChild(link);
+        }          
       } 
     );
   </script>
@@ -50,5 +82,9 @@
   <nav class="navbar">
     Snoozi
   </nav>
+  <div class="content">
+    <ul class="dog-list">  
+    </ul>    
+  </div>
 </body>
 </html>
