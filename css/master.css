@@ -7,6 +7,7 @@
 * {
   text-decoration: inherit;
   font-style: inherit;
+  font-family: 'Helvetica', sans-seriff;
   transition-delay: 0.1s;
   transition-property: all;
   transition-duration: 0.2s;
@@ -80,5 +81,37 @@ div.content {
     width: 50%;
     display: block;
     margin: 0px auto 0px auto;    
+  }
+}
+
+p.wk-p {
+ width: 50%;
+ margin: 8px auto;
+ display: block;
+ text-align: center;
+}
+
+.wk-title {
+  color: #DE4343;
+  text-align: center; 
+}
+
+div.center-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media(orientation:landscape) {
+  div.wk-content {
+    width: 50%;
+    height: 75%;
+  }
+}
+
+@media(orientation:portrait) {
+  div.wk-content {
+    width: 75%;
+    height: 50%;
   }
 }
