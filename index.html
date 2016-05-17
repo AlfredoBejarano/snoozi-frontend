@@ -1,90 +1,78 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta name="description" content="Encuentra a tu perrito perdido en Snoozi"
-  <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-  <link rel="stylesheet" type="text/css" href="css/master.css">
-  <title>Snoozi</title>
+	<meta charset="UTF-8">
+	<title>Snoozi</title>
 
-<!-- Favicons -->
-  <link rel="apple-touch-icon" sizes="57x57" href="apple-touch-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="apple-touch-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="apple-touch-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="apple-touch-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="apple-touch-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="apple-touch-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-180x180.png">
-  <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
-  <link rel="icon" type="image/png" href="favicon-194x194.png" sizes="194x194">
-  <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96">
-  <link rel="icon" type="image/png" href="android-chrome-192x192.png" sizes="192x192">
-  <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16">
-  <link rel="manifest" href="manifest.json">
-  <link rel="mask-icon" href="safari-pinned-tab.svg" color="#de4343">
-  <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
-  <meta name="theme-color" content="#de4343">
+	<!-- Favicon -->
+	<link rel="manifest" href="/manifest.json">
+	<meta name="theme-color" content="#DE4343">
+	<meta name="msapplication-TileColor" content="#DE4343">
+	<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
 
-  <!-- JQuery -->
-  <script type="text/javascript" src="scripts/jquery-2.2.3.min.js"></script>
+	<!-- API CALL -->
+	<script>
+		jQuery.get(
+			"http://10.16.60.239:3000/dog", 
+			function( response ) {
+				var json_array = JSON.parse(JSON.stringify(response));
+				const API = "http://10.16.60.239:3000" 
+				var list = document.getElementsByClassName('dog-list');
 
-  <!-- API CALL -->
-  <script>
-    jQuery.get(
-      "http://10.16.60.239:3000/dog", 
-      function( response ) {       
-        var json_array = JSON.parse(JSON.stringify(response));
-        const API = "http://10.16.60.239:3000" 
-        var list = document.getElementsByClassName('dog-list');
+				for(var i in json_array) {
+					id = json_array[i].id;
+					breed = json_array[i].breed;
+					color = json_array[i].color;
+					found_date = json_array[i].found_date;
+					found_location = json_array[i].found_location;
+					image_url = json_array[i].thumb_url;
 
-        for(var i in json_array) {
-          id = json_array[i].id;
-          breed = json_array[i].breed;
-          color = json_array[i].color;
-          found_date = json_array[i].found_date;
-          found_location = json_array[i].found_location;
-          image_url = json_array[i].thumb_url;
+					var link =  document.createElement("a");
+					link.setAttribute("target","_top");
+					link.setAttribute("href",API+"/dog/"+id);
 
-          var link =  document.createElement("a");
-          link.setAttribute("target","_top");
-          link.setAttribute("href",API+"/dog/"+id);
+					var dog = document.createElement("li");
+					dog.className = "dog-element";
 
-          var dog = document.createElement("li");
-          dog.className = "dog-element";
+					var dog_thumb = document.createElement("img");
+					dog_thumb.className = "dog-thumb"
+					dog_thumb.setAttribute("src",API + image_url);
 
-          var dog_thumb = document.createElement("img");
-          dog_thumb.className = "dog-thumb"
-          dog_thumb.setAttribute("src",API + image_url);
+					var dog_breed = document.createElement("span");
+					dog_breed.className = "dog-list-breed";
+					dog_breed.innerHTML = breed + " " + color;
 
-          var dog_breed = document.createElement("span");
-          dog_breed.className = "dog-list-breed";
-          dog_breed.innerHTML = breed + " " + color;
+					var dog_location = document.createElement("p");
+					dog_location.className = "dog-list-location";
+					dog_location.innerHTML = found_location + ", " + found_date;
 
-          var dog_location = document.createElement("p");
-          dog_location.className = "dog-list-location";
-          dog_location.innerHTML = found_location + ", " + found_date;
+					dog.appendChild(dog_thumb);
+					dog.appendChild(dog_breed);
+					dog.appendChild(dog_location);
 
-          dog.appendChild(dog_thumb);
-          dog.appendChild(dog_breed);
-          dog.appendChild(dog_location);
+					link.appendChild(dog);
 
-          link.appendChild(dog);
 
-          list[0].appendChild(link);
-        }          
-      } 
-    );
-  </script>
+					list[0].appendChild(link);
+				}
+			} 
+		);
+	</script>	
 </head>
 <body>
-  <nav class="navbar">
-    Snoozi
-  </nav>
-  <div class="content">
-    <ul class="dog-list">  
-    </ul>    
-  </div>
+	
 </body>
 </html>
