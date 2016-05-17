@@ -1,0 +1,51 @@
+/* Material Design Animations for all elements */
+* {
+	transition-delay: 0.1s;
+	transition-property: all;
+	transition-duration: 0.2s;	
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html {
+	height: 100%;
+	overflow: hidden;
+}
+
+body {
+	height: 100%;
+	overflow: auto;
+}
+
+nav.navbar {
+	z-index: 99;
+	width: 100%;
+	border: none;
+	position: fixed;
+	background-color: #DE4343;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+}
+
+body > div.container-fluid {
+	height: 100%;	
+	overflow-y: auto;
+	overflow-x: hidden;
+	background-color: #F9F9F9;
+	padding: 58px 8px 8px 8px;
+}
+
+a.thumb-link {
+	color: #333 !important;
+}
+
+a.thumb-link:hover, a.thumb-link:after, a.thumb-link:focus {
+	font-style: none !important;
+	text-decoration: none !important;
+	color: rgba(25, 25, 25, 0.5) !important;
+}
+
+div.thumbnail {		
+	border: none !important;
+	margin: 0px !important;
+	border-radius: 0px !important;
+	border-bottom: 1px solid #DDD !important;
+}

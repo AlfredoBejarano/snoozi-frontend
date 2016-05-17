@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Snoozi</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
 
 	<!-- Favicon -->
 	<link rel="manifest" href="/manifest.json">
@@ -23,6 +24,18 @@
 	<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
 	<link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
 
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+	<!-- Customized CSS  components -->
+	<link rel="stylesheet" href="css/master.css">
+
 	<!-- API CALL -->
 	<script>
 		jQuery.get(
@@ -30,7 +43,7 @@
 			function( response ) {
 				var json_array = JSON.parse(JSON.stringify(response));
 				const API = "http://10.16.60.239:3000" 
-				var list = document.getElementsByClassName('dog-list');
+				var list = document.getElementById('gallery');
 
 				for(var i in json_array) {
 					id = json_array[i].id;
@@ -41,22 +54,20 @@
 					image_url = json_array[i].thumb_url;
 
 					var link =  document.createElement("a");
+					link.className = "thumb-link"
 					link.setAttribute("target","_top");
 					link.setAttribute("href",API+"/dog/"+id);
 
-					var dog = document.createElement("li");
-					dog.className = "dog-element";
+					var dog = document.createElement("div");
+					dog.className = "thumbnail";
 
-					var dog_thumb = document.createElement("img");
-					dog_thumb.className = "dog-thumb"
+					var dog_thumb = document.createElement("img");					
 					dog_thumb.setAttribute("src",API + image_url);
 
-					var dog_breed = document.createElement("span");
-					dog_breed.className = "dog-list-breed";
+					var dog_breed = document.createElement("h3");					
 					dog_breed.innerHTML = breed + " " + color;
 
 					var dog_location = document.createElement("p");
-					dog_location.className = "dog-list-location";
 					dog_location.innerHTML = found_location + ", " + found_date;
 
 					dog.appendChild(dog_thumb);
@@ -66,13 +77,28 @@
 					link.appendChild(dog);
 
 
-					list[0].appendChild(link);
+					list.appendChild(link);
 				}
 			} 
 		);
 	</script>	
 </head>
 <body>
-	
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="#" class="navbar-brand">
+					<img src="brand.png" alt="Snoozi">
+				</a>
+			</div>
+		</div>
+	</nav>
+	<div class="container-fluid">
+		<div class="row">
+			<div class=" col-sm-6 col-md-4" id="gallery">
+				
+			</div>
+		</div>
+	</div>
 </body>
 </html>
