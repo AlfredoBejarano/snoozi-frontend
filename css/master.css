@@ -44,8 +44,8 @@ a.thumb-link:hover, a.thumb-link:after, a.thumb-link:focus {
 }
 
 div.thumbnail {		
-	border: none !important;
-	margin: 0px !important;
-	border-radius: 0px !important;
-	border-bottom: 1px solid #DDD !important;
+	display: block !important;
+	margin: -1px auto !important;
+	border-radius: 0px !important;	
 }
+
