@@ -9,6 +9,7 @@
 html {
 	height: 100%;
 	overflow: hidden;
+	text-align: center;
 }
 
 body {
@@ -59,3 +60,15 @@ div.thumbnail {
 	border-radius: 0px !important;	
 }
 
+img#dog-photo {
+	width: 100%;
+}
+
+a.danger {
+	color: #DE4343;	
+	text-decoration: none;
+}
+
+a.danger:hover {
+	opacity: 0.5;
+}
