@@ -53,10 +53,12 @@
 					found_location = json_array[i].found_location;
 					image_url = json_array[i].thumb_url;
 
+					console.log(image_url);
+
 					var link =  document.createElement("a");
 					link.className = "thumb-link"
 					link.setAttribute("target","_top");
-					link.setAttribute("href",API+"/dog/"+id);
+					link.setAttribute("href","dog.html?dog="+id);
 
 					var dog = document.createElement("div");
 					dog.className = "thumbnail";
@@ -95,7 +97,7 @@
 	</nav>
 	<div class="container-fluid">
 		<div class="row">
-			<div class=" col-sm-6 col-md-6 col-md-offset-3 col-sm-xl-8" id="gallery">
+			<div class=" col-sm-8 col-md-6 col-lg-4 col-sm-offset-2 col-md-offset-3 col-lg-offset-4" id="gallery">
 				
 			</div>
 		</div>

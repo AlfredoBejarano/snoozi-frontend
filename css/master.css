@@ -17,11 +17,12 @@ body {
 }
 
 nav.navbar {
-	z-index: 99;
+	z-index: 9;
 	width: 100%;
-	border: none;
 	position: fixed;
+	border: none !important;
 	background-color: #DE4343;
+	border-radius: 0px !important;
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
 }
 
