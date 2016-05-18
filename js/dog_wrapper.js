@@ -13,7 +13,7 @@ function getParameterByName(name, url) {
 function index() {
 	jQuery.get(
 		"http://10.16.60.239:3000/dog", 
-		function( response ) {
+		function( response ) {			
 			var json_array = JSON.parse(JSON.stringify(response));			
 			var list = document.getElementById('gallery');
 
@@ -49,8 +49,6 @@ function index() {
 				dog.appendChild(dog_location);
 
 				link.appendChild(dog);
-
-
 				list.appendChild(link);
 			}
 		} 
@@ -70,24 +68,28 @@ function show(dogID) {
 		"http://10.16.60.239:3000/dog/"+dogID, 
 		function( response ) {
 			var dog = JSON.parse(JSON.stringify(response));		
-			dogPhoto.setAttribute("src",API+dog.image_url);
-			title.innerHTML = dog.breed + " " + dog.color;
-			head.appendChild(title);
+			if(dog.code == "404") {
+				window.open("404.html","_top");
+			} else {
+				dogPhoto.setAttribute("src",API+dog.image_url);
+				title.innerHTML = dog.breed + " " + dog.color;
+				head.appendChild(title);
 			
-			var texts = [
-				"Hola, soy un " + dog.breed + " color " + dog.color+".",
-				"Me encontrarón en " + dog.found_location + " el " + dog.found_date+".",
-				'"'+dog.description+'"',
-				"¿Me reconoces?, la persona que me encontro dejó un número telefónico.",
-				dog.number				
-			];
+				var texts = [
+					"Hola, soy un " + dog.breed + " color " + dog.color+".",
+					"Me encontrarón en " + dog.found_location + " el " + dog.found_date+".",
+					'"'+dog.description+'"',
+					"¿Me reconoces?, la persona que me encontro dejó un número telefónico.",
+					dog.number				
+				];
 
-			for (var i = p.length - 1; i >= 0; i--) {
-				p[i].innerHTML = texts[i];
-				console.log(texts[i]+"");
+				for (var i = p.length - 1; i >= 0; i--) {
+					p[i].innerHTML = texts[i];
+					console.log(texts[i]+"");
+				}	
+			
+				console.log(response);
 			}
-
-			console.log(dog);
 		}			
 	);
 }

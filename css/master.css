@@ -64,11 +64,13 @@ img#dog-photo {
 	width: 100%;
 }
 
-a.danger {
+a {
 	color: #DE4343;	
 	text-decoration: none;
 }
 
-a.danger:hover {
+a:hover, a:focus {
 	opacity: 0.5;
+	color: #DE4343;
+	text-decoration: none;
 }
