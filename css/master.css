@@ -123,7 +123,16 @@ p.navbar-left {
 	text-align: center;
 }
 
-button.btn {
+input[type="radio"] {
+	padding: 8px;
+}
+
+
+#f2 {
+	opacity: 0;
+	display: none;
+}
+/*button.btn {
 	color: #F9F9F9;
 	border: 0px;
 	background: transparent !important;
@@ -132,8 +141,10 @@ button.btn {
 button.btn:hover {
 	color: #F9F9F9;
 	opacity: 0.75;
-}
+}*/
 
+
+/*
 input[type="text"], input[type="text"]:focus {
 	color: #F9F9F9;
 	border: 0px;
@@ -143,17 +154,17 @@ input[type="text"], input[type="text"]:focus {
 	background: transparent;
 }
 
-::-webkit-input-placeholder {
+ ::-webkit-input-placeholder {
    color: #FAFAFA !important;
    font-style: italic;
 }
 
-:-moz-placeholder { /* Firefox 18- */
+:-moz-placeholder { 
    color: #FAFAFA !important;
    font-style: italic;
 }
 
-::-moz-placeholder {  /* Firefox 19+ */
+::-moz-placeholder {  
    color: #FAFAFA !important;
    font-style: italic;
 }
@@ -161,4 +172,4 @@ input[type="text"], input[type="text"]:focus {
 :-ms-input-placeholder {  
    color: #FAFAFA !important;
    font-style: italic;
-}
+} */
