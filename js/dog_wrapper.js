@@ -1,4 +1,5 @@
-const API = "http://10.16.60.239:3000";
+//const API = "http://10.16.60.239:3000";
+const API = "http://localhost:3000";
 
 function getParameterByName(name, url) {
 	if (!url) url = window.location.href;
@@ -12,7 +13,7 @@ function getParameterByName(name, url) {
 
 function index() {
 	jQuery.get(
-		"http://10.16.60.239:3000/dog", 
+		API + "/dog",
 		function( response ) {			
 			var json_array = JSON.parse(JSON.stringify(response));			
 			var list = document.getElementById('gallery');
@@ -65,7 +66,7 @@ function show(dogID) {
 	var p = document.getElementsByTagName("p");	
 
 	jQuery.get(
-		"http://10.16.60.239:3000/dog/"+dogID, 
+		API + "/dog/"+dogID, 
 		function( response ) {
 			var dog = JSON.parse(JSON.stringify(response));		
 			if(dog.code == "404") {

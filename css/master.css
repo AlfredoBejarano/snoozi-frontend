@@ -17,6 +17,10 @@ body {
 	overflow: auto;
 }
 
+i.glyphicon { 
+	padding: 0px 8px;
+}
+
 nav.navbar {
 	z-index: 9;
 	width: 100%;
@@ -24,6 +28,7 @@ nav.navbar {
 	border: none !important;
 	background-color: #DE4343;
 	border-radius: 0px !important;
+	padding: 0px 8px;
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
 }
 
@@ -34,6 +39,10 @@ a.navbar-brand {
 .navbar-brand > img { 
 	height: 100%;       
 	max-height: 100%;
+}
+
+a.navbar-link {
+	color: #F9F9F9 !important;
 }
 
 body > div.container-fluid {
@@ -73,4 +82,48 @@ a:hover, a:focus {
 	opacity: 0.5;
 	color: #DE4343;
 	text-decoration: none;
+}
+
+p.navbar-left { 
+	text-align: center;
+}
+
+button.btn {
+	color: #F9F9F9;
+	border: 0px;
+	background: transparent !important;
+}
+
+button.btn:hover {
+	color: #F9F9F9;
+	opacity: 0.75;
+}
+
+input[type="text"], input[type="text"]:focus {
+	color: #F9F9F9;
+	border: 0px;
+	box-shadow: none !important;
+	border-radius: 0px !important;
+	border-bottom: 1px solid #F9F9F9;
+	background: transparent;
+}
+
+::-webkit-input-placeholder {
+   color: #FAFAFA !important;
+   font-style: italic;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: #FAFAFA !important;
+   font-style: italic;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #FAFAFA !important;
+   font-style: italic;
+}
+
+:-ms-input-placeholder {  
+   color: #FAFAFA !important;
+   font-style: italic;
 }
