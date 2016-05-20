@@ -21,6 +21,24 @@ i.glyphicon {
 	padding: 0px 8px;
 }
 
+span.icon-bar {
+	background-color: #F9F9F9 !important;
+}
+
+button.navbar-toggle {	
+	border: 1px solid #DE4343 !important;
+}
+
+button.navbar-toggle:focus {
+	background-color: transparent !important
+}
+
+button.navbar-toggle:hover {
+	border-radius: 5px;
+	border: 1px solid #F9F9F9 !important;
+	background-color: transparent !important;
+}
+
 nav.navbar {
 	z-index: 9;
 	width: 100%;
@@ -41,8 +59,25 @@ a.navbar-brand {
 	max-height: 100%;
 }
 
+a.navbar-link {	
+	vertical-align: middle;
+	padding: 0px !important;
+}
+
+a {		
+	color: inherit !important;
+}
+
 a.navbar-link {
 	color: #F9F9F9 !important;
+}
+
+ul.navbar-nav {
+	color: #F9F9F9;
+	list-style: none;
+	height: 50px !important;
+	line-height: 50px;
+	text-align: center;
 }
 
 body > div.container-fluid {
@@ -73,8 +108,8 @@ img#dog-photo {
 	width: 100%;
 }
 
-a {
-	color: #DE4343;	
+a.danger {
+	color: #DE4343 !important;	
 	text-decoration: none;
 }
 

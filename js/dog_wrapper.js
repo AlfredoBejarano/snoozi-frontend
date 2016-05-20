@@ -1,5 +1,5 @@
-//const API = "http://10.16.60.239:3000";
-const API = "http://localhost:3000";
+const API = "http://10.16.60.66:3000";
+//const API = "http://localhost:3000";
 
 function getParameterByName(name, url) {
 	if (!url) url = window.location.href;
