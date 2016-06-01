@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<meta charset="UTF-8">
-	<title>Snoozi</title>
+
+	<meta charset="UTF-8">	
 	<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
 
 	<!-- Favicon -->
@@ -38,9 +38,31 @@
 
 	<!-- API CALL -->
 	<script src="./js/dog_wrapper.js"></script>
-	<script>
-		index();
-	</script>
+	
+	<style type="text/css" media="screen">
+		p {
+			font-size: 18px;
+			text-align: justify;
+			padding: 8px;			
+		}
+
+		p#number { text-align: center; }
+	
+		p#dog-description,p#number {
+			color: #777;
+			font-style: italic;
+		}
+
+		div#content {
+			background-color: #FFF;	
+			border: 1px solid #CCC;		
+		}
+		
+		img#dog-photo {
+			border-radius: 5px;
+			border: #CCC 1px solid;			
+		}
+	</style>
 </head>
 <body>
 	<nav class="navbar navbar-default">
@@ -48,30 +70,32 @@
 			<div class="navbar-header">
 				<a href="./index.html" class="navbar-brand">
 					<img src="brand.png" alt="Snoozi">
-				</a>				
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-					<span class="icon-bar"></span>
-        			<span class="icon-bar"></span>
-        			<span class="icon-bar"></span> 
-				</button>
-			</div>	
-			<div class="collapse navbar-collapse navbar-right" id="navbar">
-				<ul class="navbar navbar-nav">
-					<li >
-						<a href="./found-dog.html" class="navbar-link">
-						<i class="glyphicon glyphicon-plus"> </i>Encontré un perrito
-						</a>
-					</li>
-				</ul>
+				</a>
 			</div>
 		</div>
 	</nav>
 	<div class="container-fluid">
 		<div class="row">
-			<div class=" col-sm-8 col-md-6 col-lg-4 col-sm-offset-2 col-md-offset-3 col-lg-offset-4" id="gallery">
-				
+			<div class=" col-sm-8 col-md-6 col-lg-4 col-sm-offset-2 col-md-offset-3 col-lg-offset-4" id="content">
+				<h1>Estoy Perdido</h1>
+				<img id="dog-photo" src="" alt="">
+				<hr>
+				<p> </p>
+				<p> </p>
+				<hr>
+				<p id="dog-description"> </p>
+				<hr>		
+				<p> </p>
+				<p id ="number"> </p>	
+				<hr>
+				<a class="danger" href="">Reportar Anuncio</a>		
+				<br><br>									
 			</div>
 		</div>
 	</div>
+	<script>
+		var dog = getParameterByName("dog");
+		show(dog);
+	</script>	
 </body>
 </html>
